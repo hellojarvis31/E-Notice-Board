@@ -13,7 +13,7 @@ namespace fyp_V1._4.Controllers
 
     public class AdminController : Controller
     {
-        //bool IsLogin = false;; 
+        //bool IsLogin = false; 
         // GET: Admin
         public ActionResult AdminMainMenu()
         {
