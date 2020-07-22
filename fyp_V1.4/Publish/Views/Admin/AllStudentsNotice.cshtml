@@ -1,0 +1,49 @@
+﻿@model fyp_V1._4.Models.Notice
+@{
+    ViewBag.Title = "AllStudentsNotice";
+}
+
+<h2>AllStudentsNotice</h2>
+<hr />
+    <h2>This Notice Will be Sent To All Students..!!</h2>
+
+        @using (Html.BeginForm("AllStudentsNotice", "Admin", FormMethod.Post, new
+        { enctype = "multipart/form-data" }))
+        {
+            <br/>
+            <div class="form-group">
+                <div class="row">
+                    @Html.LabelFor(model => model.NoticeTitle, htmlAttributes: new { @class = "control-label col-md-3" })
+
+                <div class="col-md-9">
+                    @Html.EditorFor(model => model.NoticeTitle, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NoticeTitle, "", new { @class = "text-danger" })
+                </div>
+                    <br/>
+                    <br/>
+            </div>
+                
+                    <div class="row">
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.File, new { type = "file" })
+                            @Html.ValidationMessageFor(m => m.File)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="float: right;">
+                            <br/>
+                            <br/>
+                            <input type="submit" value="Send" class="btn btn-primary" />
+                        </div>
+                    </div>
+                </div>
+                    <br/>
+                    <br/>
+                    
+    @ViewBag.SuccessMessage
+    @ViewBag.ErrorMessage
+    }
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

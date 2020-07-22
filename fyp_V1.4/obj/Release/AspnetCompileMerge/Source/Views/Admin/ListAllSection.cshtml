@@ -1,0 +1,49 @@
+﻿@model IEnumerable<fyp_V1._4.Models.Section>
+
+@{
+    ViewBag.Title = "ListAllSection";
+}
+
+<h2>ListAllSection</h2>
+
+<p>
+    @ViewBag.Message
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeTitle)
+        </th>
+        <th>
+            @Html.DisplayName("Section")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AddingEmployeeId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeSection)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddingEmployeeId)
+        </td>
+        <td>
+           @Html.ActionLink("Delete", "DeleteSection", new { section = item.DegreeSection.ToString(), degreeTitle = item.DegreeTitle.ToString() })
+        </td>
+    </tr>
+}
+
+</table>

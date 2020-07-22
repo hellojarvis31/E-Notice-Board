@@ -1,0 +1,89 @@
+﻿@model IEnumerable<fyp_V1._4.Models.Notice>
+
+@{
+    ViewBag.Title = "PopulateStudentNoticeView";
+    Layout = "../Shared/_Layout_Student.cshtml";
+}
+
+
+<h2>Notice Board</h2>
+<a href="@Url.Action("StudentLogout", "Student")" style="color:white;position:absolute;right:16px;top:16px;"><span class="glyphicon glyphicon-off"> Logout </span></a>
+<a href="@Url.Action("PopulateStudentNoticeView")" style="color:white;position:absolute;right:16px;top:42px;"><span class="glyphicon glyphicon-refresh"> Refresh</span></a>
+<br/>
+
+<style>
+    a {
+        color: rgb(219, 243, 91);
+        text-align: left;
+    }
+
+    div > h3 {
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .row {
+        box-shadow: inset rgb(219, 243, 91) 0px 0px 7px 1px;
+        margin-bottom: -1px;
+    }
+</style>
+
+    
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <a class="btn btn-block" href="@Url.Action("DownloadNotice", new { NoticePath = item.NoticePath.ToString() } ) " style="text-align:left">
+                <div class="col-lg-12">
+                    <h3>
+                        @Html.DisplayFor(modelItem => item.NoticeTitle)
+                    </h3>
+                </div>
+
+                <div class="col-lg-12">
+                    <h6>
+                        @Html.DisplayFor(modelItem => item.TimeStamp)
+                    </h6>
+                </div>
+
+           
+            </a>
+        </div>
+
+    }
+
+@*</table>*@
+
+
+
+
+@*<table class="table" border="1">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NoticeTitle)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoticeTitle)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Download",  "DownloadNotice", new { NoticePath = item.NoticePath.ToString() })
+        </td>
+    </tr>
+
+}
+
+</table>*@

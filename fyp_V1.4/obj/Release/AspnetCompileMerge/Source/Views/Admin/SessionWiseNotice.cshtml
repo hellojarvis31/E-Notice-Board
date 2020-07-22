@@ -1,0 +1,74 @@
+﻿@model fyp_V1._4.Models.Notice
+@{
+    ViewBag.Title = "SessionWiseNotice";
+}
+<style>
+    .form-group{
+        padding-bottom:40px;
+    }
+</style>
+<h2>SessionWiseNotice</h2>
+<hr/>
+<h4> Enter the Title and Session Degree Title to which you want to send Notice..!!</h4>
+<br/>
+@using (Html.BeginForm("SessionWiseNotice", "Admin", FormMethod.Post, new
+{ enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NoticeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NoticeTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NoticeTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+   
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Session, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Session, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Session, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DegreeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.DropDownListFor(model => model.DegreeTitle, new List<SelectListItem>
+               {
+                    new SelectListItem { Text = "BSCS", Value = "BSCS"},
+                    new SelectListItem { Text = "MSCS", Value = "MSCS" },
+                    new SelectListItem { Text = "PhD", Value = "PhD" }
+               })
+            @Html.ValidationMessageFor(model => model.DegreeTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.TextBoxFor(m => m.File, new { type = "file" })
+        @Html.ValidationMessageFor(m => m.File)
+    </div>
+   
+    <div class="form-group">
+        <div class="col-md-offset-6 col-md-6">
+            <input type="submit" value="Send" class="btn btn-primary" />
+        </div>
+    </div>
+    <h3 style="color:green">
+        @ViewBag.SuccessMessage
+    </h3>
+
+    <h3 style="color: red">
+        @ViewBag.ErrorMessage
+    </h3>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

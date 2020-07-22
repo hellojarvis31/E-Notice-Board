@@ -1,0 +1,65 @@
+﻿@model IEnumerable<fyp_V1._4.Models.Admin>
+
+@{
+    ViewBag.Title = "ListAllAdmin";
+}
+
+<h2>ListAllAdmin</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AdminType)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.AddingEmployeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timeStamp)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AdminType)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.AddingEmployeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timeStamp)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Delete", "DeleteAdmin", new { EmployeeId= item.EmployeeeId.ToString()})
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<fyp_V1._4.Models.Notice>
+
+@{
+    ViewBag.Title = "ListAllNotice";
+}
+
+<h2>ListAllNotice</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NoticeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeStamp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RollNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DegreeTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Session)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Section)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MorningEvening)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CourseCode)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.AllStudent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoticeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TimeStamp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RollNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DegreeTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Session)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Section)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MorningEvening)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CourseCode)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.AllStudent)
+        </td>
+        
+    </tr>
+}
+
+</table>

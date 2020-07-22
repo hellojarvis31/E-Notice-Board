@@ -1,0 +1,58 @@
+﻿@model fyp_V1._4.Models.Notice
+@{
+    ViewBag.Title = "MorningEveningWiseNotice";
+}
+<style>
+    .form-group {
+        padding-bottom: 40px;
+    }
+</style>
+<h2>MorningEveningWiseNotice</h2>
+<hr/>
+<h4> Enter the Title and Semester to which you want to send the Notice..!!</h4>
+<br/>
+@using (Html.BeginForm("MorningEveningWiseNotice", "Admin", FormMethod.Post, new
+{ enctype = "multipart/form-data" }))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NoticeTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NoticeTitle, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NoticeTitle, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+
+        @Html.LabelFor(model => model.MorningEvening, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+
+            @Html.EditorFor(model => model.MorningEvening, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MorningEvening, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    @Html.TextBoxFor(m => m.File, new { type = "file" })
+    @Html.ValidationMessageFor(m => m.File)
+
+    <div class="form-group">
+        <div class="col-md-offset-6 col-md-6">
+            <input type="submit" value="Send" class="btn btn-primary" />
+        </div>
+    </div>
+    <p class="text-success">@ViewBag.SuccessMessage</p>
+    <p class="text-danger">@ViewBag.ErrorMessage</p>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+

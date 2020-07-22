@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <style>
+        .list-group {
+            background-image: url(../../Images/sidebar2.jpg);
+            height: 100%;
+            background-size: cover;
+            border-right: 5px solid blue;
+            margin-top: 1px;
+           
+        }
+        .list-group-item {
+            background-color: rgba(0, 0, 0, 0.56);
+            font-size: 12pt;
+            color: white;
+            border: 1px solid #fff;
+        }
+        .list-group-item > a{
+            color:white;
+        }
+    </style>
+</head>
+<body  style="background-color: white; ">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+       
+            <div class="navbar-header">
+                @Html.ActionLink("E-NoticeBoard", "AdminMainMenu", "Admin", new { area = "" }, new { @class = "navbar-brand" })
+                <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li style="right: 0px; position: absolute;font-size:14px;">
+                        @*<span style="" class="glyphicon glyphicon-off"></span> @Html.ActionLink("logout", "Logout", "Admin")*@
+                        <a href="@Url.Action("Logout", "Admin") "><span style="" class="glyphicon glyphicon-off"></span> Logout</a>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+    
+  <div class="col-lg-3 navbar-left" style="background-color:white;color:black;position:fixed;height:100%;padding:0px; z-index: 2;">
+      <div class="col-lg-12" style="height:100%; padding-left:0px;">
+          <ul class="list-group">
+              <li class="list-group-item">@Html.ActionLink("Notice Menu", "NoticeMenu")</li>
+              <li class="list-group-item">@Html.ActionLink("Validate Students", "AppliedStudentList")</li>
+              <li class="list-group-item">@Html.ActionLink("Approved Students List", "ApprovedStudentsList")</li>
+              <li class="list-group-item">@Html.ActionLink("Register Student With Course", "StudentCourseRegister")</li>
+              <li class="list-group-item">@Html.ActionLink("List Student Course Registration", "ListStudentCourseRegistration")</li>
+              <li class="list-group-item">@Html.ActionLink("Add More Admins", "AddAdmin")</li>
+              <li class="list-group-item">@Html.ActionLink("List All Admins", "ListAllAdmin")</li>
+              <li class="list-group-item">@Html.ActionLink("Add Sessions", "AddSession")</li>
+              <li class="list-group-item">@Html.ActionLink("List All Sessions", "ListAllSession")</li>
+              <li class="list-group-item">@Html.ActionLink("Add Sections", "AddSection")</li>
+              <li class="list-group-item">@Html.ActionLink("List All Sections", "ListAllSection")</li>
+              <li class="list-group-item">@Html.ActionLink("Notice History", "ListAllNotice")</li>
+              <li class="list-group-item"><a href="#">About Product</a></li>
+              <li class="list-group-item"><a href="#">Contact</a></li>
+              @*<li class="list-group-item"><a href="#">Help</a></li>*@
+          </ul>
+      </div>
+  </div>
+      <div class="col-lg-offset-3 col-lg-9 container body-content">
+        @RenderBody()
+        <hr style="border:solid 1px black;" />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Murtaza & Rimsha ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "StudentMainMenu";
+    Layout = "../Shared/_Layout_Student.cshtml";
+}
+
+<h2>StudentMainMenu</h2>
+<style>    a { color: rgb(219, 243, 91);  }
+           body{ font-size:16px;}
+</style>
+
+<br /><br /><br /><br /><br /><br />
+
+    @Html.ActionLink("Sign Up", "StudentSignUp")
+
+<br />
+
+    @Html.ActionLink("Login", "Studentlogin")
+
+<br /><br /><br /><br /><br /><br />
+<p style="Height: 123px;"></p>
+<script>
+    var el = document.getElementsByTagName("a");
+    el[0].className = "btn btn-default btn-block";
+    el[1].className = "btn btn-default btn-block";
+</script>
+
